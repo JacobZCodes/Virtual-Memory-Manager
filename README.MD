@@ -29,7 +29,16 @@ that is way quicker to access than our other data structure, the page table, tha
 OK, I think that's about everything. Let's look at the code.
 
 ## Code Flow
-addressList.txt is a huge text file containing a bunch of numbers meant to represent different logical addresses.
+addressList.txt is a huge text file containing a bunch of numbers meant to represent different logical addresses. The main function loops through each address and uses it to do the following:
+  Consult TLB Cache - If hit, great display data
+  If miss, consult the page table
+    - Page Table Hit - Great, display data
+    - Page Fault - Worst case; find free frame in RAM, write data from disk to RAM, update page table, update TLB
+The program also keeps track of the number of page faults and TLB hits, allowing us to see some diagnostic information
+at the end of the program.
+
+
+
 
 Jacob Zamore
 Source Files: vmmgr.c 
