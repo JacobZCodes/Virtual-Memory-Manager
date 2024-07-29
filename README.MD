@@ -41,7 +41,6 @@ at the end of the program.
 
 
 Jacob Zamore
-Source Files: vmmgr.c 
 Compile Command: gcc vmmgr.c -o vmmgr
 Run Command: ./vmmgr addressList.txt
 
