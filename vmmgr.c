@@ -132,7 +132,7 @@ int main(int argc, char** argv) {
         if (tempFrame != -1) {
             TLBHitRate++;
             updateAccessCount(findTLBIndex(tempFrame));
-            printf("Logical Address %i already exists in RAM at %i, data is: %u\n", logicalAddress, (tempFrame * 256 + offset), RAM[tempFrame][offset]);
+            printf("TLB Hit - Logical Address %i exists in RAM at %i, data is: %u\n", logicalAddress, (tempFrame * 256 + offset), RAM[tempFrame][offset]);
             continue;
         }
         // TLB miss - consult page table
@@ -159,12 +159,12 @@ int main(int argc, char** argv) {
                 TLB[LRUIndex][0] = pageNum;
                 TLB[LRUIndex][1] = freeFrame;
             }
-            printf("Logical Address %i already exists in RAM at %i, data is: %u\n", logicalAddress, (freeFrame * 256 + offset), RAM[freeFrame][offset]);
+            printf("Page Fault - Logical Address %i mapped to RAM at %i, written data is: %u\n", logicalAddress, (freeFrame * 256 + offset), RAM[freeFrame][offset]);
         }
         else {
             // Frame found in page table, so there's nothing to populate in RAM --
             // just print the data
-            printf("Logical Address %i already exists in RAM at %i, data is: %u\n", logicalAddress, (frame * 256 + offset), RAM[frame][offset]);
+            printf("Page Table Hit - Logical Address %i in RAM at %i, data is: %u\n", logicalAddress, (frame * 256 + offset), RAM[frame][offset]);
             
         }
         totalReferences++;
