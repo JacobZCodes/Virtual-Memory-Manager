@@ -37,7 +37,7 @@ addressList.txt is a huge text file containing a bunch of numbers meant to repre
 The program also keeps track of the number of page faults and TLB hits, allowing us to see some diagnostic information
 at the end of the program.
 
-
+![vmmgr in action](https://github.com/JacobZCodes/Virtual-Memory-Manager/blob/master/vmmgr.JPG?raw=true)
 
 
 Jacob Zamore
